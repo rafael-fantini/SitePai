@@ -40,11 +40,11 @@ function calculateRamp(e) {
     
     if (C2 > C1) {
         comprimentoFinal = C2;
-        condicaoUsada = 'C2 > C1, usando C2';
+        condicaoUsada = 'ACOMODAÇÕES LATERAIS > COMPRIMENTO DA RAMPA PRINCIPAL, usando ACOMODAÇÕES LATERAIS';
     } else {
         C2 = H1 / 12;
         comprimentoFinal = C2;
-        condicaoUsada = 'C2 < C1, recalculado como H1/12';
+        condicaoUsada = 'ACOMODAÇÕES LATERAIS < COMPRIMENTO DA RAMPA PRINCIPAL, recalculado como ALTURA DA GUIA/12';
     }
     
     // Calcular inclinação percentual
@@ -185,7 +185,7 @@ function drawRamp() {
     ctx.fillStyle = '#64748b';
     ctx.textAlign = 'left';
     const infoY = 60;
-    ctx.fillText(`Largura original: ${calculationResults.L.toFixed(1)} cm`, 20, infoY);
+    ctx.fillText(`LARGURA DA CALÇADA: ${calculationResults.L.toFixed(1)} cm`, 20, infoY);
     ctx.fillText(`Condição aplicada: ${calculationResults.condicaoUsada}`, 20, infoY + 20);
 }
 
