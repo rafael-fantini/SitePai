@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Rampa de Calçada</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadora de Rampa de Calçada</h1>
+            <p class="subtitle">Calcule as dimensões adequadas para rampas de acessibilidade</p>
+        </header>
+
+        <main>
+            <div class="calculator-wrapper">
+                <section class="input-section">
+                    <h2>Dados de Entrada</h2>
+                    <form id="rampaForm">
+                        <div class="form-group">
+                            <label for="altura">
+                                Altura (H1) - em centímetros:
+                                <span class="tooltip" data-tooltip="Altura do desnível a ser vencido pela rampa">?</span>
+                            </label>
+                            <input type="number" id="altura" name="altura" step="0.1" min="0" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="largura">
+                                Largura (L) - em centímetros:
+                                <span class="tooltip" data-tooltip="Largura disponível para a rampa">?</span>
+                            </label>
+                            <input type="number" id="largura" name="largura" step="0.1" min="0" required>
+                        </div>
+                        
+                        <button type="submit" class="calculate-btn">Calcular Rampa</button>
+                    </form>
+                </section>
+
+                <section class="results-section" id="resultsSection" style="display: none;">
+                    <h2>Resultados do Cálculo</h2>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-label">C1 (Comprimento base):</span>
+                            <span class="result-value" id="resultC1">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">H2 (Altura calculada):</span>
+                            <span class="result-value" id="resultH2">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">C2 (Comprimento calculado):</span>
+                            <span class="result-value" id="resultC2">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Comprimento final:</span>
+                            <span class="result-value" id="resultFinal">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Inclinação:</span>
+                            <span class="result-value" id="resultInclinacao">-</span>
+                        </div>
+                    </div>
+                    
+                    <div class="formula-explanation">
+                        <h3>Fórmulas utilizadas:</h3>
+                        <ul>
+                            <li>C1 = L × 1,20</li>
+                            <li>H2 = C1 ÷ 12</li>
+                            <li>C2 = (H1 - H2) × 20</li>
+                            <li>Se C2 > C1, usar C2</li>
+                            <li>Se C2 < C1, então C2 = H1 ÷ 12</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="visualization-section" id="visualizationSection" style="display: none;">
+                    <h2>Visualização da Rampa</h2>
+                    <div class="canvas-container">
+                        <canvas id="rampaCanvas" width="800" height="400"></canvas>
+                    </div>
+                    <div class="controls">
+                        <button id="downloadBtn" class="download-btn">Baixar Imagem</button>
+                        <button id="resetBtn" class="reset-btn">Novo Cálculo</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>Calculadora desenvolvida conforme normas de acessibilidade</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

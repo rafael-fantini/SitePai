@@ -1,0 +1,337 @@
+/* Reset e configurações base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1e40af;
+    --secondary-color: #64748b;
+    --success-color: #16a34a;
+    --background-color: #f8fafc;
+    --card-background: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 40px 0 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.calculator-wrapper {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+/* Sections */
+section {
+    padding: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: #f9fafb;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Tooltip */
+.tooltip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: help;
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1e293b;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: normal;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    margin-bottom: 8px;
+    max-width: 200px;
+    white-space: normal;
+    text-align: center;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}
+
+/* Buttons */
+.calculate-btn, .download-btn, .reset-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.calculate-btn {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+.calculate-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.download-btn {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.download-btn:hover {
+    background-color: #15803d;
+}
+
+.reset-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.reset-btn:hover {
+    background-color: #475569;
+}
+
+/* Results */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.result-item {
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.result-label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.result-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Formula explanation */
+.formula-explanation {
+    background-color: #f0f9ff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #bae6fd;
+}
+
+.formula-explanation h3 {
+    font-size: 1.125rem;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.formula-explanation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.formula-explanation li {
+    padding: 8px 0;
+    font-family: 'Courier New', monospace;
+    color: #0369a1;
+    background-color: white;
+    margin-bottom: 8px;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #e0f2fe;
+}
+
+/* Canvas container */
+.canvas-container {
+    background-color: white;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+#rampaCanvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.controls {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 20px;
+    }
+    
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .controls {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .controls button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    section h2 {
+        font-size: 1.25rem;
+    }
+}
