@@ -20,18 +20,18 @@
                     <form id="rampaForm">
                         <div class="form-group">
                             <label for="altura">
-                                Altura (H1) - em centímetros:
-                                <span class="tooltip" data-tooltip="Altura do desnível a ser vencido pela rampa">?</span>
+                                ALTURA DA GUIA (H1) - em metros:
+                                <span class="tooltip" data-tooltip="Altura do desnível a ser vencido pela rampa (em metros)">?</span>
                             </label>
-                            <input type="number" id="altura" name="altura" step="0.1" min="0" required>
+                            <input type="number" id="altura" name="altura" step="0.01" min="0" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="largura">
-                                Largura (L) - em centímetros:
-                                <span class="tooltip" data-tooltip="Largura disponível para a rampa">?</span>
+                                LARGURA DA CALÇADA (L) - em metros:
+                                <span class="tooltip" data-tooltip="Largura disponível para a rampa (em metros)">?</span>
                             </label>
-                            <input type="number" id="largura" name="largura" step="0.1" min="0" required>
+                            <input type="number" id="largura" name="largura" step="0.01" min="0" required>
                         </div>
                         
                         <button type="submit" class="calculate-btn">Calcular Rampa</button>
@@ -42,15 +42,15 @@
                     <h2>Resultados do Cálculo</h2>
                     <div class="results-grid">
                         <div class="result-item">
-                            <span class="result-label">C1 (Comprimento base):</span>
+                            <span class="result-label">COMPRIMENTO DA RAMPA PRINCIPAL (C1):</span>
                             <span class="result-value" id="resultC1">-</span>
                         </div>
                         <div class="result-item">
-                            <span class="result-label">H2 (Altura calculada):</span>
+                            <span class="result-label">NÍVEL DO PATAMAR (H2):</span>
                             <span class="result-value" id="resultH2">-</span>
                         </div>
                         <div class="result-item">
-                            <span class="result-label">C2 (Comprimento calculado):</span>
+                            <span class="result-label">ACOMODAÇÕES LATERAIS (C2):</span>
                             <span class="result-value" id="resultC2">-</span>
                         </div>
                         <div class="result-item">
@@ -66,11 +66,11 @@
                     <div class="formula-explanation">
                         <h3>Fórmulas utilizadas:</h3>
                         <ul>
-                            <li>C1 = L × 1,20</li>
-                            <li>H2 = C1 ÷ 12</li>
-                            <li>C2 = (H1 - H2) × 20</li>
-                            <li>Se C2 > C1, usar C2</li>
-                            <li>Se C2 < C1, então C2 = H1 ÷ 12</li>
+                            <li>COMPRIMENTO DA RAMPA PRINCIPAL = LARGURA DA CALÇADA × 1,20</li>
+                            <li>NÍVEL DO PATAMAR = COMPRIMENTO DA RAMPA PRINCIPAL ÷ 12</li>
+                            <li>ACOMODAÇÕES LATERAIS = (ALTURA DA GUIA - NÍVEL DO PATAMAR) × 20</li>
+                            <li>Se ACOMODAÇÕES LATERAIS > COMPRIMENTO DA RAMPA PRINCIPAL, usar ACOMODAÇÕES LATERAIS</li>
+                            <li>Se ACOMODAÇÕES LATERAIS < COMPRIMENTO DA RAMPA PRINCIPAL, então ACOMODAÇÕES LATERAIS = ALTURA DA GUIA ÷ 12</li>
                         </ul>
                     </div>
                 </section>
