@@ -76,10 +76,10 @@ function calculateRamp(e) {
 
 // Função para exibir resultados
 function displayResults() {
-    document.getElementById('resultC1').textContent = `${calculationResults.C1.toFixed(2)} cm`;
-    document.getElementById('resultH2').textContent = `${calculationResults.H2.toFixed(2)} cm`;
-    document.getElementById('resultC2').textContent = `${calculationResults.C2.toFixed(2)} cm`;
-    document.getElementById('resultFinal').textContent = `${calculationResults.comprimentoFinal.toFixed(2)} cm`;
+    document.getElementById('resultC1').textContent = `${calculationResults.C1.toFixed(3)} m`;
+    document.getElementById('resultH2').textContent = `${calculationResults.H2.toFixed(3)} m`;
+    document.getElementById('resultC2').textContent = `${calculationResults.C2.toFixed(3)} m`;
+    document.getElementById('resultFinal').textContent = `${calculationResults.comprimentoFinal.toFixed(3)} m`;
     document.getElementById('resultInclinacao').textContent = `${calculationResults.inclinacao.toFixed(2)}%`;
     
     // Adicionar classe de aviso se inclinação estiver fora dos padrões
@@ -156,11 +156,11 @@ function drawRamp() {
     
     // Comprimento (base)
     drawDimensionLine(startX, startY + 30, startX + rampWidth, startY + 30, 
-                     `${calculationResults.comprimentoFinal.toFixed(1)} cm`);
+                     `${calculationResults.comprimentoFinal.toFixed(3)} m`);
     
     // Altura
     drawDimensionLine(startX + rampWidth + 30, startY, startX + rampWidth + 30, startY - rampHeight, 
-                     `${calculationResults.H1.toFixed(1)} cm`, true);
+                     `${calculationResults.H1.toFixed(3)} m`, true);
     
     // Ângulo de inclinação
     const angle = Math.atan(calculationResults.H1 / calculationResults.comprimentoFinal);
@@ -185,7 +185,7 @@ function drawRamp() {
     ctx.fillStyle = '#64748b';
     ctx.textAlign = 'left';
     const infoY = 60;
-    ctx.fillText(`LARGURA DA CALÇADA: ${calculationResults.L.toFixed(1)} cm`, 20, infoY);
+    ctx.fillText(`LARGURA DA CALÇADA: ${calculationResults.L.toFixed(3)} m`, 20, infoY);
     ctx.fillText(`Condição aplicada: ${calculationResults.condicaoUsada}`, 20, infoY + 20);
 }
 

@@ -31,8 +31,8 @@ Onde:
 
 ## Como Usar
 1. Abra o arquivo `index.html` em um navegador web moderno
-2. Insira a altura (H1) em centímetros
-3. Insira a largura (L) em centímetros
+2. Insira a altura (H1) em metros
+3. Insira a largura (L) em metros
 4. Clique em "Calcular Rampa"
 5. Visualize os resultados e a representação gráfica
 6. Baixe a imagem gerada se desejar

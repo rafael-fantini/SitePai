@@ -20,18 +20,18 @@
                     <form id="rampaForm">
                         <div class="form-group">
                             <label for="altura">
-                                ALTURA DA GUIA (H1) - em centímetros:
-                                <span class="tooltip" data-tooltip="Altura do desnível a ser vencido pela rampa">?</span>
+                                ALTURA DA GUIA (H1) - em metros:
+                                <span class="tooltip" data-tooltip="Altura do desnível a ser vencido pela rampa (em metros)">?</span>
                             </label>
-                            <input type="number" id="altura" name="altura" step="0.1" min="0" required>
+                            <input type="number" id="altura" name="altura" step="0.01" min="0" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="largura">
-                                LARGURA DA CALÇADA (L) - em centímetros:
-                                <span class="tooltip" data-tooltip="Largura disponível para a rampa">?</span>
+                                LARGURA DA CALÇADA (L) - em metros:
+                                <span class="tooltip" data-tooltip="Largura disponível para a rampa (em metros)">?</span>
                             </label>
-                            <input type="number" id="largura" name="largura" step="0.1" min="0" required>
+                            <input type="number" id="largura" name="largura" step="0.01" min="0" required>
                         </div>
                         
                         <button type="submit" class="calculate-btn">Calcular Rampa</button>
